@@ -1,0 +1,25 @@
+{
+  "numeric": [
+    "precio",
+    "lag_1",
+    "lag_2",
+    "lag_4",
+    "std_movil_4",
+    "semana_transcurrida",
+    "media_movil_8"
+  ],
+  "categorical": [
+    "categoria",
+    "tipo_sucursal"
+  ],
+  "boolean": [
+    "promocion",
+    "promocion_sin_registro",
+    "es_feriado_temporada",
+    "es_quincena",
+    "es_diciembre",
+    "perecedero"
+  ],
+  "feature_set": "8-week MA only",
+  "random_state": 649
+}

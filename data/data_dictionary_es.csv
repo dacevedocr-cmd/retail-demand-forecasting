@@ -1,0 +1,16 @@
+columna,tipo,descripcion,rol_sugerido,pct_nulos_aprox,observaciones
+fecha,date,Lunes de inicio de la semana de venta,Índice temporal,Ninguno,predictora / índice
+id_sucursal,cat,Código de punto de venta (12 valores),Identificador,Ninguno,predictora
+nombre_sucursal,cat,Nombre descriptivo de la sucursal,Referencia,Ninguno,descriptiva (no usar como predictora directa)
+tipo_sucursal,cat,urbana / rural,Predictora,Ninguno,predictora
+id_producto,cat,SKU del producto (340 valores),Identificador,Ninguno,predictora (o agrupar por categoría)
+categoria,cat,Categoría comercial del producto (10 valores),Predictora,Ninguno,predictora
+perecedero,bool,Indica si el producto es perecedero,Predictora,Ninguno,predictora
+precio,float,Precio unitario en colones esa semana,Predictora,~2.1%,imputar con último precio conocido por producto
+promocion,bool/NaN,Hubo promoción esa semana,Predictora,~32% (100% en año 1),MAR: no se registró en el primer año; imputar con cautela o excluir año 1 del entrenamiento de este efecto
+unidades,int,Unidades vendidas en la semana (VARIABLE OBJETIVO),Objetivo,0%,revisar ceros por falta de inventario (MNAR)
+stock_inicial,int,Inventario disponible al inicio de la semana,REVISAR — posible fuga,0%,correlación muy alta con unidades; evaluar exclusión
+stock_final,int,Inventario remanente al cierre de la semana,FUGA DE DATOS,0%,se conoce solo después de vender; NO usar como predictora
+es_feriado_temporada,bool,Semana coincide con feriado o temporada alta conocida,Predictora,0%,predictora
+es_quincena,bool,Semana coincide con pago de quincena aproximado,Predictora,0%,predictora
+es_diciembre,bool,Semana cae en diciembre,Predictora,0%,predictora; se concentran los atípicos altos
